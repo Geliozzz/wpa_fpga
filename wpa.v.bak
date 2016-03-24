@@ -1,0 +1,6 @@
+module wpa
+(
+	input clk;
+)
+
+endmodule
