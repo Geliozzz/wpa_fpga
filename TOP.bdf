@@ -267,7 +267,7 @@ agreement for further details.
 	(annotation_block (parameter)(rect 1104 -56 1416 168))
 )
 (symbol
-	(rect 752 376 1168 800)
+	(rect 704 576 1120 1000)
 	(text "wpa2" (rect 193 -1 244 17)(font "Arial" (font_size 10)))
 	(text "inst" (rect 8 408 41 422)(font "Arial" ))
 	(port

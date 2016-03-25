@@ -1,0 +1,10 @@
+*.cdb
+*.hdb
+incremental_db/
+*.rdb
+*.idb
+*.ddb
+output_files/
+db/
+simulation/
+wpa2.qws
