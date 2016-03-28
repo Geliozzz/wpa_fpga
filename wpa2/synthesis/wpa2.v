@@ -10,23 +10,32 @@ module wpa2 (
 		output wire        altpll_phasedone_conduit_export, // altpll_phasedone_conduit.export
 		input  wire        clk_clk,                         //                      clk.clk
 		inout  wire [7:0]  control_export,                  //                  control.export
+		output wire [11:0] ram_wire_addr,                   //                 ram_wire.addr
+		output wire [1:0]  ram_wire_ba,                     //                         .ba
+		output wire        ram_wire_cas_n,                  //                         .cas_n
+		output wire        ram_wire_cke,                    //                         .cke
+		output wire        ram_wire_cs_n,                   //                         .cs_n
+		inout  wire [15:0] ram_wire_dq,                     //                         .dq
+		output wire [1:0]  ram_wire_dqm,                    //                         .dqm
+		output wire        ram_wire_ras_n,                  //                         .ras_n
+		output wire        ram_wire_we_n,                   //                         .we_n
 		input  wire [31:0] read_export,                     //                     read.export
 		input  wire        reset_reset_n,                   //                    reset.reset_n
 		output wire [31:0] write_export                     //                    write.export
 	);
 
-	wire         altpll_c0_clk;                                             // altpll:c0 -> [irq_mapper:clk, jtag_uart:clk, mm_interconnect_0:altpll_c0_clk, nios2_e:clk, onchip_memory:clk, pio_address:clk, pio_control:clk, pio_read_data:clk, pio_write_data:clk, rst_controller_001:clk]
+	wire         altpll_c0_clk;                                             // altpll:c0 -> [irq_mapper:clk, jtag_uart:clk, mm_interconnect_0:altpll_c0_clk, nios2_e:clk, onchip_memory:clk, pio_address:clk, pio_control:clk, pio_read_data:clk, pio_write_data:clk, rst_controller_001:clk, sdram_controller:clk]
 	wire  [31:0] nios2_e_data_master_readdata;                              // mm_interconnect_0:nios2_e_data_master_readdata -> nios2_e:d_readdata
 	wire         nios2_e_data_master_waitrequest;                           // mm_interconnect_0:nios2_e_data_master_waitrequest -> nios2_e:d_waitrequest
 	wire         nios2_e_data_master_debugaccess;                           // nios2_e:debug_mem_slave_debugaccess_to_roms -> mm_interconnect_0:nios2_e_data_master_debugaccess
-	wire  [15:0] nios2_e_data_master_address;                               // nios2_e:d_address -> mm_interconnect_0:nios2_e_data_master_address
+	wire  [24:0] nios2_e_data_master_address;                               // nios2_e:d_address -> mm_interconnect_0:nios2_e_data_master_address
 	wire   [3:0] nios2_e_data_master_byteenable;                            // nios2_e:d_byteenable -> mm_interconnect_0:nios2_e_data_master_byteenable
 	wire         nios2_e_data_master_read;                                  // nios2_e:d_read -> mm_interconnect_0:nios2_e_data_master_read
 	wire         nios2_e_data_master_write;                                 // nios2_e:d_write -> mm_interconnect_0:nios2_e_data_master_write
 	wire  [31:0] nios2_e_data_master_writedata;                             // nios2_e:d_writedata -> mm_interconnect_0:nios2_e_data_master_writedata
 	wire  [31:0] nios2_e_instruction_master_readdata;                       // mm_interconnect_0:nios2_e_instruction_master_readdata -> nios2_e:i_readdata
 	wire         nios2_e_instruction_master_waitrequest;                    // mm_interconnect_0:nios2_e_instruction_master_waitrequest -> nios2_e:i_waitrequest
-	wire  [15:0] nios2_e_instruction_master_address;                        // nios2_e:i_address -> mm_interconnect_0:nios2_e_instruction_master_address
+	wire  [24:0] nios2_e_instruction_master_address;                        // nios2_e:i_address -> mm_interconnect_0:nios2_e_instruction_master_address
 	wire         nios2_e_instruction_master_read;                           // nios2_e:i_read -> mm_interconnect_0:nios2_e_instruction_master_read
 	wire         mm_interconnect_0_jtag_uart_avalon_jtag_slave_chipselect;  // mm_interconnect_0:jtag_uart_avalon_jtag_slave_chipselect -> jtag_uart:av_chipselect
 	wire  [31:0] mm_interconnect_0_jtag_uart_avalon_jtag_slave_readdata;    // jtag_uart:av_readdata -> mm_interconnect_0:jtag_uart_avalon_jtag_slave_readdata
@@ -50,7 +59,7 @@ module wpa2 (
 	wire  [31:0] mm_interconnect_0_altpll_pll_slave_writedata;              // mm_interconnect_0:altpll_pll_slave_writedata -> altpll:writedata
 	wire         mm_interconnect_0_onchip_memory_s1_chipselect;             // mm_interconnect_0:onchip_memory_s1_chipselect -> onchip_memory:chipselect
 	wire  [31:0] mm_interconnect_0_onchip_memory_s1_readdata;               // onchip_memory:readdata -> mm_interconnect_0:onchip_memory_s1_readdata
-	wire  [11:0] mm_interconnect_0_onchip_memory_s1_address;                // mm_interconnect_0:onchip_memory_s1_address -> onchip_memory:address
+	wire  [12:0] mm_interconnect_0_onchip_memory_s1_address;                // mm_interconnect_0:onchip_memory_s1_address -> onchip_memory:address
 	wire   [3:0] mm_interconnect_0_onchip_memory_s1_byteenable;             // mm_interconnect_0:onchip_memory_s1_byteenable -> onchip_memory:byteenable
 	wire         mm_interconnect_0_onchip_memory_s1_write;                  // mm_interconnect_0:onchip_memory_s1_write -> onchip_memory:write
 	wire  [31:0] mm_interconnect_0_onchip_memory_s1_writedata;              // mm_interconnect_0:onchip_memory_s1_writedata -> onchip_memory:writedata
@@ -72,10 +81,19 @@ module wpa2 (
 	wire   [1:0] mm_interconnect_0_pio_control_s1_address;                  // mm_interconnect_0:pio_control_s1_address -> pio_control:address
 	wire         mm_interconnect_0_pio_control_s1_write;                    // mm_interconnect_0:pio_control_s1_write -> pio_control:write_n
 	wire  [31:0] mm_interconnect_0_pio_control_s1_writedata;                // mm_interconnect_0:pio_control_s1_writedata -> pio_control:writedata
+	wire         mm_interconnect_0_sdram_controller_s1_chipselect;          // mm_interconnect_0:sdram_controller_s1_chipselect -> sdram_controller:az_cs
+	wire  [15:0] mm_interconnect_0_sdram_controller_s1_readdata;            // sdram_controller:za_data -> mm_interconnect_0:sdram_controller_s1_readdata
+	wire         mm_interconnect_0_sdram_controller_s1_waitrequest;         // sdram_controller:za_waitrequest -> mm_interconnect_0:sdram_controller_s1_waitrequest
+	wire  [21:0] mm_interconnect_0_sdram_controller_s1_address;             // mm_interconnect_0:sdram_controller_s1_address -> sdram_controller:az_addr
+	wire         mm_interconnect_0_sdram_controller_s1_read;                // mm_interconnect_0:sdram_controller_s1_read -> sdram_controller:az_rd_n
+	wire   [1:0] mm_interconnect_0_sdram_controller_s1_byteenable;          // mm_interconnect_0:sdram_controller_s1_byteenable -> sdram_controller:az_be_n
+	wire         mm_interconnect_0_sdram_controller_s1_readdatavalid;       // sdram_controller:za_valid -> mm_interconnect_0:sdram_controller_s1_readdatavalid
+	wire         mm_interconnect_0_sdram_controller_s1_write;               // mm_interconnect_0:sdram_controller_s1_write -> sdram_controller:az_wr_n
+	wire  [15:0] mm_interconnect_0_sdram_controller_s1_writedata;           // mm_interconnect_0:sdram_controller_s1_writedata -> sdram_controller:az_data
 	wire         irq_mapper_receiver0_irq;                                  // jtag_uart:av_irq -> irq_mapper:receiver0_irq
 	wire  [31:0] nios2_e_irq_irq;                                           // irq_mapper:sender_irq -> nios2_e:irq
 	wire         rst_controller_reset_out_reset;                            // rst_controller:reset_out -> [altpll:reset, mm_interconnect_0:altpll_inclk_interface_reset_reset_bridge_in_reset_reset]
-	wire         rst_controller_001_reset_out_reset;                        // rst_controller_001:reset_out -> [irq_mapper:reset, jtag_uart:rst_n, mm_interconnect_0:nios2_e_reset_reset_bridge_in_reset_reset, nios2_e:reset_n, onchip_memory:reset, pio_address:reset_n, pio_control:reset_n, pio_read_data:reset_n, pio_write_data:reset_n, rst_translator:in_reset]
+	wire         rst_controller_001_reset_out_reset;                        // rst_controller_001:reset_out -> [irq_mapper:reset, jtag_uart:rst_n, mm_interconnect_0:nios2_e_reset_reset_bridge_in_reset_reset, nios2_e:reset_n, onchip_memory:reset, pio_address:reset_n, pio_control:reset_n, pio_read_data:reset_n, pio_write_data:reset_n, rst_translator:in_reset, sdram_controller:reset_n]
 	wire         rst_controller_001_reset_out_reset_req;                    // rst_controller_001:reset_req -> [nios2_e:reset_req, onchip_memory:reset_req, rst_translator:reset_req_in]
 
 	wpa2_altpll altpll (
@@ -188,6 +206,29 @@ module wpa2 (
 		.out_port   (write_export)                                    // external_connection.export
 	);
 
+	wpa2_sdram_controller sdram_controller (
+		.clk            (altpll_c0_clk),                                       //   clk.clk
+		.reset_n        (~rst_controller_001_reset_out_reset),                 // reset.reset_n
+		.az_addr        (mm_interconnect_0_sdram_controller_s1_address),       //    s1.address
+		.az_be_n        (~mm_interconnect_0_sdram_controller_s1_byteenable),   //      .byteenable_n
+		.az_cs          (mm_interconnect_0_sdram_controller_s1_chipselect),    //      .chipselect
+		.az_data        (mm_interconnect_0_sdram_controller_s1_writedata),     //      .writedata
+		.az_rd_n        (~mm_interconnect_0_sdram_controller_s1_read),         //      .read_n
+		.az_wr_n        (~mm_interconnect_0_sdram_controller_s1_write),        //      .write_n
+		.za_data        (mm_interconnect_0_sdram_controller_s1_readdata),      //      .readdata
+		.za_valid       (mm_interconnect_0_sdram_controller_s1_readdatavalid), //      .readdatavalid
+		.za_waitrequest (mm_interconnect_0_sdram_controller_s1_waitrequest),   //      .waitrequest
+		.zs_addr        (ram_wire_addr),                                       //  wire.export
+		.zs_ba          (ram_wire_ba),                                         //      .export
+		.zs_cas_n       (ram_wire_cas_n),                                      //      .export
+		.zs_cke         (ram_wire_cke),                                        //      .export
+		.zs_cs_n        (ram_wire_cs_n),                                       //      .export
+		.zs_dq          (ram_wire_dq),                                         //      .export
+		.zs_dqm         (ram_wire_dqm),                                        //      .export
+		.zs_ras_n       (ram_wire_ras_n),                                      //      .export
+		.zs_we_n        (ram_wire_we_n)                                        //      .export
+	);
+
 	wpa2_mm_interconnect_0 mm_interconnect_0 (
 		.altpll_c0_clk                                            (altpll_c0_clk),                                             //                                          altpll_c0.clk
 		.clk_48_clk_clk                                           (clk_clk),                                                   //                                         clk_48_clk.clk
@@ -248,7 +289,16 @@ module wpa2 (
 		.pio_write_data_s1_write                                  (mm_interconnect_0_pio_write_data_s1_write),                 //                                                   .write
 		.pio_write_data_s1_readdata                               (mm_interconnect_0_pio_write_data_s1_readdata),              //                                                   .readdata
 		.pio_write_data_s1_writedata                              (mm_interconnect_0_pio_write_data_s1_writedata),             //                                                   .writedata
-		.pio_write_data_s1_chipselect                             (mm_interconnect_0_pio_write_data_s1_chipselect)             //                                                   .chipselect
+		.pio_write_data_s1_chipselect                             (mm_interconnect_0_pio_write_data_s1_chipselect),            //                                                   .chipselect
+		.sdram_controller_s1_address                              (mm_interconnect_0_sdram_controller_s1_address),             //                                sdram_controller_s1.address
+		.sdram_controller_s1_write                                (mm_interconnect_0_sdram_controller_s1_write),               //                                                   .write
+		.sdram_controller_s1_read                                 (mm_interconnect_0_sdram_controller_s1_read),                //                                                   .read
+		.sdram_controller_s1_readdata                             (mm_interconnect_0_sdram_controller_s1_readdata),            //                                                   .readdata
+		.sdram_controller_s1_writedata                            (mm_interconnect_0_sdram_controller_s1_writedata),           //                                                   .writedata
+		.sdram_controller_s1_byteenable                           (mm_interconnect_0_sdram_controller_s1_byteenable),          //                                                   .byteenable
+		.sdram_controller_s1_readdatavalid                        (mm_interconnect_0_sdram_controller_s1_readdatavalid),       //                                                   .readdatavalid
+		.sdram_controller_s1_waitrequest                          (mm_interconnect_0_sdram_controller_s1_waitrequest),         //                                                   .waitrequest
+		.sdram_controller_s1_chipselect                           (mm_interconnect_0_sdram_controller_s1_chipselect)           //                                                   .chipselect
 	);
 
 	wpa2_irq_mapper irq_mapper (

@@ -1,22 +1,31 @@
 # # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
 # 
 preplace inst wpa2 -pg 1 -lvl 1 -y 40 -regy -20
-preplace inst wpa2.jtag_uart -pg 1 -lvl 5 -y 140
-preplace inst wpa2.pio_address -pg 1 -lvl 6 -y 410
-preplace inst wpa2.nios2_e -pg 1 -lvl 4 -y 90
+preplace inst wpa2.pio_control -pg 1 -lvl 6 -y 130
+preplace inst wpa2.jtag_uart -pg 1 -lvl 5 -y 120
+preplace inst wpa2.pio_write_data -pg 1 -lvl 6 -y 350
+preplace inst wpa2.pio_address -pg 1 -lvl 6 -y 460
+preplace inst wpa2.nios2_e -pg 1 -lvl 4 -y 50
 preplace inst wpa2.nios2_e.cpu -pg 1
-preplace inst wpa2.onchip_memory -pg 1 -lvl 5 -y 40
-preplace inst wpa2.altpll -pg 1 -lvl 5 -y 250
+preplace inst wpa2.onchip_memory -pg 1 -lvl 5 -y 30
+preplace inst wpa2.altpll -pg 1 -lvl 5 -y 300
 preplace inst wpa2.nios2_e.reset_bridge -pg 1
 preplace inst wpa2.nios2_e.clock_bridge -pg 1
-preplace inst wpa2.clk_48 -pg 1 -lvl 1 -y 270
-preplace netloc EXPORT<net_container>wpa2</net_container>(SLAVE)wpa2.address,(SLAVE)pio_address.external_connection) 1 0 6 NJ 440 NJ 440 NJ 440 NJ 440 NJ 440 NJ
-preplace netloc POINT_TO_POINT<net_container>wpa2</net_container>(MASTER)clk_48.clk,(SLAVE)altpll.inclk_interface) 1 1 4 NJ 280 NJ 280 NJ 280 NJ
+preplace inst wpa2.clk_48 -pg 1 -lvl 1 -y 290
+preplace inst wpa2.pio_read_data -pg 1 -lvl 6 -y 240
+preplace netloc EXPORT<net_container>wpa2</net_container>(SLAVE)wpa2.altpll_phasedone_conduit,(SLAVE)altpll.phasedone_conduit) 1 0 5 NJ 400 NJ 400 NJ 400 NJ 400 NJ
+preplace netloc INTERCONNECT<net_container>wpa2</net_container>(SLAVE)pio_read_data.s1,(SLAVE)jtag_uart.avalon_jtag_slave,(SLAVE)nios2_e.debug_mem_slave,(MASTER)nios2_e.data_master,(MASTER)nios2_e.instruction_master,(SLAVE)pio_control.s1,(SLAVE)pio_address.s1,(SLAVE)onchip_memory.s1,(SLAVE)altpll.pll_slave,(SLAVE)pio_write_data.s1) 1 3 3 880 200 1300 450 1660
+preplace netloc EXPORT<net_container>wpa2</net_container>(SLAVE)wpa2.read,(SLAVE)pio_read_data.external_connection) 1 0 6 NJ 280 NJ 280 NJ 280 NJ 280 NJ 270 NJ
+preplace netloc FAN_OUT<net_container>wpa2</net_container>(MASTER)altpll.c0,(SLAVE)pio_write_data.clk,(SLAVE)pio_read_data.clk,(SLAVE)jtag_uart.clk,(SLAVE)onchip_memory.clk1,(SLAVE)pio_address.clk,(SLAVE)pio_control.clk,(SLAVE)nios2_e.clk) 1 3 3 860 220 1340 250 1620
+preplace netloc EXPORT<net_container>wpa2</net_container>(SLAVE)wpa2.address,(SLAVE)pio_address.external_connection) 1 0 6 NJ 490 NJ 490 NJ 490 NJ 490 NJ 490 NJ
+preplace netloc EXPORT<net_container>wpa2</net_container>(SLAVE)wpa2.altpll_areset_conduit,(SLAVE)altpll.areset_conduit) 1 0 5 NJ 360 NJ 340 NJ 340 NJ 340 NJ
+preplace netloc FAN_OUT<net_container>wpa2</net_container>(SLAVE)onchip_memory.reset1,(SLAVE)pio_read_data.reset,(SLAVE)pio_write_data.reset,(SLAVE)altpll.inclk_interface_reset,(SLAVE)pio_address.reset,(MASTER)clk_48.clk_reset,(SLAVE)pio_control.reset,(SLAVE)nios2_e.reset,(SLAVE)jtag_uart.reset) 1 1 5 NJ 320 NJ 320 840 240 1320 290 1640
+preplace netloc POINT_TO_POINT<net_container>wpa2</net_container>(SLAVE)altpll.inclk_interface,(MASTER)clk_48.clk) 1 1 4 NJ 300 NJ 300 NJ 300 1260
 preplace netloc EXPORT<net_container>wpa2</net_container>(SLAVE)clk_48.clk_in_reset,(SLAVE)wpa2.reset) 1 0 1 NJ
-preplace netloc FAN_OUT<net_container>wpa2</net_container>(SLAVE)pio_address.reset,(SLAVE)altpll.inclk_interface_reset,(SLAVE)jtag_uart.reset,(SLAVE)onchip_memory.reset1,(MASTER)clk_48.clk_reset,(SLAVE)nios2_e.reset) 1 1 5 NJ 300 NJ 300 750 240 1210 400 1470
+preplace netloc EXPORT<net_container>wpa2</net_container>(SLAVE)wpa2.altpll_locked_conduit,(SLAVE)altpll.locked_conduit) 1 0 5 NJ 380 NJ 370 NJ 370 NJ 370 NJ
 preplace netloc EXPORT<net_container>wpa2</net_container>(SLAVE)wpa2.clk,(SLAVE)clk_48.clk_in) 1 0 1 NJ
-preplace netloc FAN_OUT<net_container>wpa2</net_container>(MASTER)altpll.c0,(SLAVE)jtag_uart.clk,(SLAVE)pio_address.clk,(SLAVE)nios2_e.clk,(SLAVE)onchip_memory.clk1) 1 3 3 750 30 1230 130 1490
-preplace netloc POINT_TO_POINT<net_container>wpa2</net_container>(SLAVE)jtag_uart.irq,(MASTER)nios2_e.irq) 1 4 1 1190
-preplace netloc INTERCONNECT<net_container>wpa2</net_container>(SLAVE)jtag_uart.avalon_jtag_slave,(SLAVE)altpll.pll_slave,(SLAVE)pio_address.s1,(MASTER)nios2_e.instruction_master,(SLAVE)nios2_e.debug_mem_slave,(MASTER)nios2_e.data_master,(SLAVE)onchip_memory.s1) 1 3 3 770 50 1170 420 1450
-levelinfo -pg 1 0 60 1680
-levelinfo -hier wpa2 70 100 410 730 940 1280 1520 1670
+preplace netloc EXPORT<net_container>wpa2</net_container>(SLAVE)pio_write_data.external_connection,(SLAVE)wpa2.write) 1 0 6 NJ 470 NJ 470 NJ 470 NJ 470 NJ 470 NJ
+preplace netloc POINT_TO_POINT<net_container>wpa2</net_container>(SLAVE)jtag_uart.irq,(MASTER)nios2_e.irq) 1 4 1 1260
+preplace netloc EXPORT<net_container>wpa2</net_container>(SLAVE)pio_control.external_connection,(SLAVE)wpa2.control) 1 0 6 NJ 260 NJ 260 NJ 260 NJ 260 NJ 230 NJ
+levelinfo -pg 1 0 150 1850
+levelinfo -hier wpa2 160 190 500 820 1030 1430 1690 1840

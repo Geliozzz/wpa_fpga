@@ -30,5 +30,7 @@ sha1 sha(
 				 .error(error)
 				);
 				
+//assign control[2] = error;
+				
 
 endmodule

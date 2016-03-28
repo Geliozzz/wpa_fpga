@@ -20,6 +20,8 @@ Progress: Adding pio_read_data [altera_avalon_pio 15.1]
 Progress: Parameterizing module pio_read_data
 Progress: Adding pio_write_data [altera_avalon_pio 15.1]
 Progress: Parameterizing module pio_write_data
+Progress: Adding sdram_controller [altera_avalon_new_sdram_controller 15.1]
+Progress: Parameterizing module sdram_controller
 Progress: Building connections
 Progress: Parameterizing connections
 Progress: Validating
@@ -49,6 +51,8 @@ Progress: Adding pio_read_data [altera_avalon_pio 15.1]
 Progress: Parameterizing module pio_read_data
 Progress: Adding pio_write_data [altera_avalon_pio 15.1]
 Progress: Parameterizing module pio_write_data
+Progress: Adding sdram_controller [altera_avalon_new_sdram_controller 15.1]
+Progress: Parameterizing module sdram_controller
 Progress: Building connections
 Progress: Parameterizing connections
 Progress: Validating
@@ -60,30 +64,34 @@ Info: Inserting clock-crossing logic between rsp_demux_002.src0 and rsp_mux.sink
 Info: Inserting clock-crossing logic between rsp_demux_002.src1 and rsp_mux_001.sink2
 Info: altpll: "wpa2" instantiated altpll "altpll"
 Info: jtag_uart: Starting RTL generation for module 'wpa2_jtag_uart'
-Info: jtag_uart:   Generation command is [exec C:/altera_lite/15.1/quartus/bin64/perl/bin/perl.exe -I C:/altera_lite/15.1/quartus/bin64/perl/lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin/europa -I C:/altera_lite/15.1/quartus/sopc_builder/bin/perl_lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=wpa2_jtag_uart --dir=C:/Users/Oleg/AppData/Local/Temp/alt6882_2931065502390865243.dir/0003_jtag_uart_gen/ --quartus_dir=C:/altera_lite/15.1/quartus --verilog --config=C:/Users/Oleg/AppData/Local/Temp/alt6882_2931065502390865243.dir/0003_jtag_uart_gen//wpa2_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart:   Generation command is [exec C:/altera_lite/15.1/quartus/bin64/perl/bin/perl.exe -I C:/altera_lite/15.1/quartus/bin64/perl/lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin/europa -I C:/altera_lite/15.1/quartus/sopc_builder/bin/perl_lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=wpa2_jtag_uart --dir=C:/Users/Oleg/AppData/Local/Temp/alt6888_3991067678326179031.dir/0003_jtag_uart_gen/ --quartus_dir=C:/altera_lite/15.1/quartus --verilog --config=C:/Users/Oleg/AppData/Local/Temp/alt6888_3991067678326179031.dir/0003_jtag_uart_gen//wpa2_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
 Info: jtag_uart: Done RTL generation for module 'wpa2_jtag_uart'
 Info: jtag_uart: "wpa2" instantiated altera_avalon_jtag_uart "jtag_uart"
 Info: nios2_e: "wpa2" instantiated altera_nios2_gen2 "nios2_e"
 Info: onchip_memory: Starting RTL generation for module 'wpa2_onchip_memory'
-Info: onchip_memory:   Generation command is [exec C:/altera_lite/15.1/quartus/bin64/perl/bin/perl.exe -I C:/altera_lite/15.1/quartus/bin64/perl/lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin/europa -I C:/altera_lite/15.1/quartus/sopc_builder/bin/perl_lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=wpa2_onchip_memory --dir=C:/Users/Oleg/AppData/Local/Temp/alt6882_2931065502390865243.dir/0004_onchip_memory_gen/ --quartus_dir=C:/altera_lite/15.1/quartus --verilog --config=C:/Users/Oleg/AppData/Local/Temp/alt6882_2931065502390865243.dir/0004_onchip_memory_gen//wpa2_onchip_memory_component_configuration.pl  --do_build_sim=0  ]
+Info: onchip_memory:   Generation command is [exec C:/altera_lite/15.1/quartus/bin64/perl/bin/perl.exe -I C:/altera_lite/15.1/quartus/bin64/perl/lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin/europa -I C:/altera_lite/15.1/quartus/sopc_builder/bin/perl_lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=wpa2_onchip_memory --dir=C:/Users/Oleg/AppData/Local/Temp/alt6888_3991067678326179031.dir/0004_onchip_memory_gen/ --quartus_dir=C:/altera_lite/15.1/quartus --verilog --config=C:/Users/Oleg/AppData/Local/Temp/alt6888_3991067678326179031.dir/0004_onchip_memory_gen//wpa2_onchip_memory_component_configuration.pl  --do_build_sim=0  ]
 Info: onchip_memory: Done RTL generation for module 'wpa2_onchip_memory'
 Info: onchip_memory: "wpa2" instantiated altera_avalon_onchip_memory2 "onchip_memory"
 Info: pio_address: Starting RTL generation for module 'wpa2_pio_address'
-Info: pio_address:   Generation command is [exec C:/altera_lite/15.1/quartus/bin64/perl/bin/perl.exe -I C:/altera_lite/15.1/quartus/bin64/perl/lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin/europa -I C:/altera_lite/15.1/quartus/sopc_builder/bin/perl_lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=wpa2_pio_address --dir=C:/Users/Oleg/AppData/Local/Temp/alt6882_2931065502390865243.dir/0005_pio_address_gen/ --quartus_dir=C:/altera_lite/15.1/quartus --verilog --config=C:/Users/Oleg/AppData/Local/Temp/alt6882_2931065502390865243.dir/0005_pio_address_gen//wpa2_pio_address_component_configuration.pl  --do_build_sim=0  ]
+Info: pio_address:   Generation command is [exec C:/altera_lite/15.1/quartus/bin64/perl/bin/perl.exe -I C:/altera_lite/15.1/quartus/bin64/perl/lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin/europa -I C:/altera_lite/15.1/quartus/sopc_builder/bin/perl_lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=wpa2_pio_address --dir=C:/Users/Oleg/AppData/Local/Temp/alt6888_3991067678326179031.dir/0005_pio_address_gen/ --quartus_dir=C:/altera_lite/15.1/quartus --verilog --config=C:/Users/Oleg/AppData/Local/Temp/alt6888_3991067678326179031.dir/0005_pio_address_gen//wpa2_pio_address_component_configuration.pl  --do_build_sim=0  ]
 Info: pio_address: Done RTL generation for module 'wpa2_pio_address'
 Info: pio_address: "wpa2" instantiated altera_avalon_pio "pio_address"
 Info: pio_control: Starting RTL generation for module 'wpa2_pio_control'
-Info: pio_control:   Generation command is [exec C:/altera_lite/15.1/quartus/bin64/perl/bin/perl.exe -I C:/altera_lite/15.1/quartus/bin64/perl/lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin/europa -I C:/altera_lite/15.1/quartus/sopc_builder/bin/perl_lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=wpa2_pio_control --dir=C:/Users/Oleg/AppData/Local/Temp/alt6882_2931065502390865243.dir/0006_pio_control_gen/ --quartus_dir=C:/altera_lite/15.1/quartus --verilog --config=C:/Users/Oleg/AppData/Local/Temp/alt6882_2931065502390865243.dir/0006_pio_control_gen//wpa2_pio_control_component_configuration.pl  --do_build_sim=0  ]
+Info: pio_control:   Generation command is [exec C:/altera_lite/15.1/quartus/bin64/perl/bin/perl.exe -I C:/altera_lite/15.1/quartus/bin64/perl/lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin/europa -I C:/altera_lite/15.1/quartus/sopc_builder/bin/perl_lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=wpa2_pio_control --dir=C:/Users/Oleg/AppData/Local/Temp/alt6888_3991067678326179031.dir/0006_pio_control_gen/ --quartus_dir=C:/altera_lite/15.1/quartus --verilog --config=C:/Users/Oleg/AppData/Local/Temp/alt6888_3991067678326179031.dir/0006_pio_control_gen//wpa2_pio_control_component_configuration.pl  --do_build_sim=0  ]
 Info: pio_control: Done RTL generation for module 'wpa2_pio_control'
 Info: pio_control: "wpa2" instantiated altera_avalon_pio "pio_control"
 Info: pio_read_data: Starting RTL generation for module 'wpa2_pio_read_data'
-Info: pio_read_data:   Generation command is [exec C:/altera_lite/15.1/quartus/bin64/perl/bin/perl.exe -I C:/altera_lite/15.1/quartus/bin64/perl/lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin/europa -I C:/altera_lite/15.1/quartus/sopc_builder/bin/perl_lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=wpa2_pio_read_data --dir=C:/Users/Oleg/AppData/Local/Temp/alt6882_2931065502390865243.dir/0007_pio_read_data_gen/ --quartus_dir=C:/altera_lite/15.1/quartus --verilog --config=C:/Users/Oleg/AppData/Local/Temp/alt6882_2931065502390865243.dir/0007_pio_read_data_gen//wpa2_pio_read_data_component_configuration.pl  --do_build_sim=0  ]
+Info: pio_read_data:   Generation command is [exec C:/altera_lite/15.1/quartus/bin64/perl/bin/perl.exe -I C:/altera_lite/15.1/quartus/bin64/perl/lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin/europa -I C:/altera_lite/15.1/quartus/sopc_builder/bin/perl_lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=wpa2_pio_read_data --dir=C:/Users/Oleg/AppData/Local/Temp/alt6888_3991067678326179031.dir/0007_pio_read_data_gen/ --quartus_dir=C:/altera_lite/15.1/quartus --verilog --config=C:/Users/Oleg/AppData/Local/Temp/alt6888_3991067678326179031.dir/0007_pio_read_data_gen//wpa2_pio_read_data_component_configuration.pl  --do_build_sim=0  ]
 Info: pio_read_data: Done RTL generation for module 'wpa2_pio_read_data'
 Info: pio_read_data: "wpa2" instantiated altera_avalon_pio "pio_read_data"
 Info: pio_write_data: Starting RTL generation for module 'wpa2_pio_write_data'
-Info: pio_write_data:   Generation command is [exec C:/altera_lite/15.1/quartus/bin64/perl/bin/perl.exe -I C:/altera_lite/15.1/quartus/bin64/perl/lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin/europa -I C:/altera_lite/15.1/quartus/sopc_builder/bin/perl_lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=wpa2_pio_write_data --dir=C:/Users/Oleg/AppData/Local/Temp/alt6882_2931065502390865243.dir/0008_pio_write_data_gen/ --quartus_dir=C:/altera_lite/15.1/quartus --verilog --config=C:/Users/Oleg/AppData/Local/Temp/alt6882_2931065502390865243.dir/0008_pio_write_data_gen//wpa2_pio_write_data_component_configuration.pl  --do_build_sim=0  ]
+Info: pio_write_data:   Generation command is [exec C:/altera_lite/15.1/quartus/bin64/perl/bin/perl.exe -I C:/altera_lite/15.1/quartus/bin64/perl/lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin/europa -I C:/altera_lite/15.1/quartus/sopc_builder/bin/perl_lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=wpa2_pio_write_data --dir=C:/Users/Oleg/AppData/Local/Temp/alt6888_3991067678326179031.dir/0008_pio_write_data_gen/ --quartus_dir=C:/altera_lite/15.1/quartus --verilog --config=C:/Users/Oleg/AppData/Local/Temp/alt6888_3991067678326179031.dir/0008_pio_write_data_gen//wpa2_pio_write_data_component_configuration.pl  --do_build_sim=0  ]
 Info: pio_write_data: Done RTL generation for module 'wpa2_pio_write_data'
 Info: pio_write_data: "wpa2" instantiated altera_avalon_pio "pio_write_data"
+Info: sdram_controller: Starting RTL generation for module 'wpa2_sdram_controller'
+Info: sdram_controller:   Generation command is [exec C:/altera_lite/15.1/quartus/bin64/perl/bin/perl.exe -I C:/altera_lite/15.1/quartus/bin64/perl/lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin/europa -I C:/altera_lite/15.1/quartus/sopc_builder/bin/perl_lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- C:/altera_lite/15.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=wpa2_sdram_controller --dir=C:/Users/Oleg/AppData/Local/Temp/alt6888_3991067678326179031.dir/0009_sdram_controller_gen/ --quartus_dir=C:/altera_lite/15.1/quartus --verilog --config=C:/Users/Oleg/AppData/Local/Temp/alt6888_3991067678326179031.dir/0009_sdram_controller_gen//wpa2_sdram_controller_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram_controller: Done RTL generation for module 'wpa2_sdram_controller'
+Info: sdram_controller: "wpa2" instantiated altera_avalon_new_sdram_controller "sdram_controller"
 Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
@@ -92,23 +100,24 @@ Info: avalon_st_adapter_004: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_005: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_006: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_007: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_008: Inserting error_adapter: error_adapter_0
 Info: mm_interconnect_0: "wpa2" instantiated altera_mm_interconnect "mm_interconnect_0"
 Info: irq_mapper: "wpa2" instantiated altera_irq_mapper "irq_mapper"
 Info: rst_controller: "wpa2" instantiated altera_reset_controller "rst_controller"
 Info: cpu: Starting RTL generation for module 'wpa2_nios2_e_cpu'
-Info: cpu:   Generation command is [exec C:/altera_lite/15.1/quartus/bin64//eperlcmd.exe -I C:/altera_lite/15.1/quartus/bin64//perl/lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin/europa -I C:/altera_lite/15.1/quartus/sopc_builder/bin/perl_lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin -I C:/altera_lite/15.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I C:/altera_lite/15.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I C:/altera_lite/15.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I C:/altera_lite/15.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- C:/altera_lite/15.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=wpa2_nios2_e_cpu --dir=C:/Users/Oleg/AppData/Local/Temp/alt6882_2931065502390865243.dir/0011_cpu_gen/ --quartus_bindir=C:/altera_lite/15.1/quartus/bin64/ --verilog --config=C:/Users/Oleg/AppData/Local/Temp/alt6882_2931065502390865243.dir/0011_cpu_gen//wpa2_nios2_e_cpu_processor_configuration.pl  --do_build_sim=0  ]
-Info: cpu: # 2016.03.22 20:20:41 (*) Starting Nios II generation
-Info: cpu: # 2016.03.22 20:20:41 (*)   Checking for plaintext license.
-Info: cpu: # 2016.03.22 20:20:48 (*)   Couldn't query license setup in Quartus directory C:/altera_lite/15.1/quartus/bin64/
-Info: cpu: # 2016.03.22 20:20:48 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
-Info: cpu: # 2016.03.22 20:20:48 (*)   LM_LICENSE_FILE environment variable is empty
-Info: cpu: # 2016.03.22 20:20:48 (*)   Plaintext license not found.
-Info: cpu: # 2016.03.22 20:20:48 (*)   No license required to generate encrypted Nios II/e.
-Info: cpu: # 2016.03.22 20:20:48 (*)   Elaborating CPU configuration settings
-Info: cpu: # 2016.03.22 20:20:48 (*)   Creating all objects for CPU
-Info: cpu: # 2016.03.22 20:20:49 (*)   Generating RTL from CPU objects
-Info: cpu: # 2016.03.22 20:20:49 (*)   Creating plain-text RTL
-Info: cpu: # 2016.03.22 20:20:51 (*) Done Nios II generation
+Info: cpu:   Generation command is [exec C:/altera_lite/15.1/quartus/bin64//eperlcmd.exe -I C:/altera_lite/15.1/quartus/bin64//perl/lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin/europa -I C:/altera_lite/15.1/quartus/sopc_builder/bin/perl_lib -I C:/altera_lite/15.1/quartus/sopc_builder/bin -I C:/altera_lite/15.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I C:/altera_lite/15.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I C:/altera_lite/15.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I C:/altera_lite/15.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- C:/altera_lite/15.1/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=wpa2_nios2_e_cpu --dir=C:/Users/Oleg/AppData/Local/Temp/alt6888_3991067678326179031.dir/0012_cpu_gen/ --quartus_bindir=C:/altera_lite/15.1/quartus/bin64/ --verilog --config=C:/Users/Oleg/AppData/Local/Temp/alt6888_3991067678326179031.dir/0012_cpu_gen//wpa2_nios2_e_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2016.03.28 22:05:15 (*) Starting Nios II generation
+Info: cpu: # 2016.03.28 22:05:15 (*)   Checking for plaintext license.
+Info: cpu: # 2016.03.28 22:05:22 (*)   Couldn't query license setup in Quartus directory C:/altera_lite/15.1/quartus/bin64/
+Info: cpu: # 2016.03.28 22:05:22 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info: cpu: # 2016.03.28 22:05:22 (*)   LM_LICENSE_FILE environment variable is empty
+Info: cpu: # 2016.03.28 22:05:22 (*)   Plaintext license not found.
+Info: cpu: # 2016.03.28 22:05:22 (*)   No license required to generate encrypted Nios II/e.
+Info: cpu: # 2016.03.28 22:05:22 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2016.03.28 22:05:22 (*)   Creating all objects for CPU
+Info: cpu: # 2016.03.28 22:05:24 (*)   Generating RTL from CPU objects
+Info: cpu: # 2016.03.28 22:05:24 (*)   Creating plain-text RTL
+Info: cpu: # 2016.03.28 22:05:26 (*) Done Nios II generation
 Info: cpu: Done RTL generation for module 'wpa2_nios2_e_cpu'
 Info: cpu: "nios2_e" instantiated altera_nios2_gen2_unit "cpu"
 Info: nios2_e_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "nios2_e_data_master_translator"
@@ -118,15 +127,23 @@ Info: jtag_uart_avalon_jtag_slave_agent: "mm_interconnect_0" instantiated altera
 Info: jtag_uart_avalon_jtag_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "jtag_uart_avalon_jtag_slave_agent_rsp_fifo"
 Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
 Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: router_010: "mm_interconnect_0" instantiated altera_merlin_router "router_010"
+Info: sdram_controller_s1_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "sdram_controller_s1_burst_adapter"
 Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
 Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
 Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
 Info: rsp_demux_002: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_002"
 Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
 Info: Reusing file C:/Users/Oleg/Documents/FPGA_proj/wpa2/wpa2/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: sdram_controller_s1_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "sdram_controller_s1_rsp_width_adapter"
+Info: Reusing file C:/Users/Oleg/Documents/FPGA_proj/wpa2/wpa2/synthesis/submodules/altera_merlin_address_alignment.sv
+Info: Reusing file C:/Users/Oleg/Documents/FPGA_proj/wpa2/wpa2/synthesis/submodules/altera_merlin_burst_uncompressor.sv
 Info: crosser: "mm_interconnect_0" instantiated altera_avalon_st_handshake_clock_crosser "crosser"
+Info: Reusing file C:/Users/Oleg/Documents/FPGA_proj/wpa2/wpa2/synthesis/submodules/altera_avalon_st_pipeline_base.v
 Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: avalon_st_adapter_008: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_008"
 Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
-Info: wpa2: Done "wpa2" with 28 modules, 45 files
+Info: error_adapter_0: "avalon_st_adapter_008" instantiated error_adapter "error_adapter_0"
+Info: wpa2: Done "wpa2" with 34 modules, 59 files
 Info: qsys-generate succeeded.
 Info: Finished: Create HDL design files for synthesis
