@@ -8,7 +8,7 @@
   </columns>
  </systemtable>
  <library
-   expandedCategories="Library/Memory Interfaces and Controllers/Memory Interfaces with ALTMEMPHY,Library/Basic Functions/On Chip Memory,Library/DSP/Video and Image Processing,Library/DSP,Library/University Program/Clock,Library/Memory Interfaces and Controllers/SDRAM,Library/University Program,Library/Memory Interfaces and Controllers/Memory Interfaces with UniPHY,Library/Memory Interfaces and Controllers,Library/University Program/Memory,Library,Project,Library/Basic Functions" />
+   expandedCategories="Library/University Program/Clock,Project,Library/Memory Interfaces and Controllers,Library/Memory Interfaces and Controllers/SDRAM,Library/University Program,Library/Memory Interfaces and Controllers/Memory Interfaces with ALTMEMPHY,Library/Memory Interfaces and Controllers/Memory Interfaces with UniPHY,Library" />
  <window width="1920" height="1160" x="0" y="0" />
  <generation greybox="0" />
 </preferences>
